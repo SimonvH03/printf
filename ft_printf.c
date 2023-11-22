@@ -3,17 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:13:52 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/14 21:06:56 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:31:03 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-size_t	ft_dprint(int arg)
+size_t	ft_cprint(char c)
+{
+	ft_putchar(c);
+	return (1);
+}
+
+size_t	ft_sprint(char *str)
+{
+	ft_putstr(str);
+	return (ft_strlen(str));
+}
+
+size_t	ft_iprint(int arg)
 {
 	ft_putnbr(arg);
 	return (ft_intlen(arg));
@@ -21,8 +33,14 @@ size_t	ft_dprint(int arg)
 
 size_t	ft_spellbook(va_list args, const char *form)
 {
-	if (*form == 'd')
-		return (ft_dprint(va_arg(args, int)));
+	if (*form == '%')
+		return (ft_cprint('%'));
+	if (*form == 'c')
+		return (ft_cprint(va_arg(args, char)));
+	if (*form == 's')
+		return (ft_sprint(va_arg(args, char *)));
+	if (*form == 'i')
+		return (ft_iprint(va_arg(args, int)));
 	return (0);
 }
 
@@ -48,6 +66,6 @@ size_t	ft_printf(const char *form, ...)
 
 int	main(void)
 {
-	ft_printf("%d\n", 5);
+	ft_printf("%i\n", 5);
 	return (0);
 }

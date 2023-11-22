@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:13:52 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 15:31:03 by simon            ###   ########.fr       */
+/*   Updated: 2023/11/22 18:36:08 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-size_t	ft_cprint(char c)
+int	ft_cprint(char c)
 {
 	ft_putchar(c);
 	return (1);
 }
 
-size_t	ft_sprint(char *str)
+int	ft_sprint(char *str)
 {
 	ft_putstr(str);
 	return (ft_strlen(str));
 }
 
-size_t	ft_iprint(int arg)
+int	ft_idprint(int arg)
 {
 	ft_putnbr(arg);
 	return (ft_intlen(arg));
 }
 
-size_t	ft_spellbook(va_list args, const char *form)
+int	ft_spellbook(va_list args, const char *form)
 {
 	if (*form == '%')
 		return (ft_cprint('%'));
@@ -39,16 +39,16 @@ size_t	ft_spellbook(va_list args, const char *form)
 		return (ft_cprint(va_arg(args, char)));
 	if (*form == 's')
 		return (ft_sprint(va_arg(args, char *)));
-	if (*form == 'i')
-		return (ft_iprint(va_arg(args, int)));
+	if (*form == 'i' || *form == 'd')
+		return (ft_idprint(va_arg(args, int)));
 	return (0);
 }
 
-size_t	ft_printf(const char *form, ...)
+int	ft_printf(const char *form, ...)
 {
 	va_list	args;
-	size_t	bytes_printed;
-	size_t	i;
+	int		bytes_printed;
+	int		i;
 
 	va_start(args, form);
 	i = 0;
@@ -66,6 +66,9 @@ size_t	ft_printf(const char *form, ...)
 
 int	main(void)
 {
+	ft_printf("%%\n", 5);
+	ft_printf("%c\n", 5);
+	ft_printf("%s\n", 5);
 	ft_printf("%i\n", 5);
 	return (0);
 }

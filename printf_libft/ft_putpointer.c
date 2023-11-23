@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 21:48:28 by simon            ###   ########.fr       */
+/*   Created: 2023/11/23 23:15:27 by simon             #+#    #+#             */
+/*   Updated: 2023/11/23 23:27:50 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include "printf_libft/printf_libft.h"
-# include <stdarg.h>
+#include "printf_libft.h"
 
+int	ft_putpointer(unsigned long p)
+{
+	int	len;
 
-int	ft_cprint(char c);
-int	ft_sprint(char *str);
-int	ft_idprint(int id);
-int	ft_uprint(unsigned int u);
-int	ft_xprint(int x);
-int	ft_bigxprint(int x);
-
-#endif
+	len = 0;
+	if (p >= 16)
+		len += ft_putpointer(p / 16);
+	p = p % 16;
+	if (p > 9)
+		len += ft_putchar(p + 'a' - 10);
+	else
+		len += ft_putchar(p + '0');
+	return (len);
+}

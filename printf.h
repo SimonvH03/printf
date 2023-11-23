@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/23 19:28:44 by simon            ###   ########.fr       */
+/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/11/23 23:35:42 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_LIBFT_H
-# define PRINTF_LIBFT_H
-# include <stddef.h>
-# include <stdio.h>
+#ifndef PRINTF_H
+# define PRINTF_H
+# include "printf_libft/printf_libft.h"
+# include <stdarg.h>
 # include <unistd.h>
 
-int			ft_strlen(const char *c);
-
-int			ft_putnbr_base(unsigned int n, char *base);
-int			ft_putnbr(long n);
-int			ft_putchar(char c);
-int			ft_putstr(char *str);
+int	ft_cprint(char c);
+int	ft_sprint(char *str);
+int	ft_idprint(int id);
+int	ft_uprint(unsigned int u);
+int	ft_xprint(int x);
+int	ft_bigxprint(int x);
+int	ft_pprint(void *p);
 
 #endif

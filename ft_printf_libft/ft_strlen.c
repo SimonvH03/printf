@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 21:48:28 by simon            ###   ########.fr       */
+/*   Created: 2023/10/03 17:59:12 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/11/23 19:30:05 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include "printf_libft/printf_libft.h"
-# include <stdarg.h>
+#include "printf_libft.h"
 
+int	ft_strlen(const char *c)
+{
+	int	i;
 
-int	ft_cprint(char c);
-int	ft_sprint(char *str);
-int	ft_idprint(int id);
-int	ft_uprint(unsigned int u);
-int	ft_xprint(int x);
-int	ft_bigxprint(int x);
-
-#endif
+	i = 0;
+	while (c[i])
+		i++;
+	return (i);
+}

@@ -3,62 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:13:52 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 20:42:57 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:27:47 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "../libft/libft.h"
-
-int	ft_putnbrtest(long n)
-{
-	int	len;
-
-	len = 0;
-	if (n < 0)
-	{
-		len += ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-		len += ft_putnbr(n / 10);
-	n = n % 10;
-	len += ft_putchar(n + 48);
-	return (len);
-}
-
-int	ft_cprint(char c)
-{
-	return (ft_putchar(c));
-}
-
-int	ft_sprint(char *str)
-{
-	return (ft_putstr(str));
-}
-
-int	ft_idprint(int id)
-{
-	return (ft_putnbr(id));
-}
-
-int	ft_uprint(unsigned int u)
-{
-	return (ft_putnbr(u));
-}
-
-int	ft_xprint(int x)
-{
-	return (ft_putnbr_base(x, "0123456789abcdef"));
-}
-
-int	ft_upxprint(int x)
-{
-	return (ft_putnbr_base(x, "0123456789ABCDEF"));
-}
+#include "printf.h"
+#include <limits.h>
 
 int	ft_spellbook(va_list args, const char *form)
 {
@@ -75,7 +28,7 @@ int	ft_spellbook(va_list args, const char *form)
 	if (*form == 'x')
 		return (ft_xprint(va_arg(args, int)));
 	if (*form == 'X')
-		return (ft_upxprint(va_arg(args, int)));
+		return (ft_bigxprint(va_arg(args, unsigned int)));
 	return (0);
 }
 

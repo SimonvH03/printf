@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 21:48:28 by simon            ###   ########.fr       */
+/*   Created: 2023/11/22 21:11:55 by simon             #+#    #+#             */
+/*   Updated: 2023/11/22 22:24:25 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include "printf_libft/printf_libft.h"
-# include <stdarg.h>
+#include "printf.h"
 
+int	ft_cprint(char c)
+{
+	return (ft_putchar(c));
+}
 
-int	ft_cprint(char c);
-int	ft_sprint(char *str);
-int	ft_idprint(int id);
-int	ft_uprint(unsigned int u);
-int	ft_xprint(int x);
-int	ft_bigxprint(int x);
+int	ft_sprint(char *str)
+{
+	return (ft_putstr(str));
+}
 
-#endif
+int	ft_idprint(int id)
+{
+	return (ft_putnbr(id));
+}
+
+int	ft_uprint(unsigned int u)
+{
+	return (ft_putnbr(u));
+}
+
+int	ft_xprint(int x)
+{
+	return (ft_putnbr_base(x, "0123456789abcdef"));
+}
+
+int	ft_bigxprint(int x)
+{
+	return (ft_putnbr_base(x, "0123456789ABCDEF"));
+}

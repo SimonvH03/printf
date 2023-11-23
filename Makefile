@@ -1,9 +1,11 @@
-NAME = libftprintf.a
+NAME =	libftprintf.a
 
-SRC = 
+SRC =	ft_printf.c \
+		ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 
-all			:	$(NAME)
+all: $(NAME)
 
-$(NAME) 	:	
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)

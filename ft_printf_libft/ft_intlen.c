@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 21:48:28 by simon            ###   ########.fr       */
+/*   Created: 2023/11/14 20:58:59 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/11/22 21:48:59 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include "printf_libft/printf_libft.h"
-# include <stdarg.h>
+#include "printf_libft.h"
 
+int	ft_intlen(int n)
+{
+	int	len;
 
-int	ft_cprint(char c);
-int	ft_sprint(char *str);
-int	ft_idprint(int id);
-int	ft_uprint(unsigned int u);
-int	ft_xprint(int x);
-int	ft_bigxprint(int x);
-
-#endif
+	len = 1;
+	if (n < 0)
+		len++;
+	while (n >= 10 || n <= -10)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}

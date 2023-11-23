@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/23 17:40:29 by simon            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:55:53 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	ft_putnbr_base(unsigned int n, char *base)
 	if (n >= size)
 		len += ft_putnbr_base(n / size, base);
 	n = n % size;
-	len += ft_putchar(base[n % size]);
+	len += ft_putchar(base[n]);
 	return (len);
 }

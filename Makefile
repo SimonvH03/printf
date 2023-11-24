@@ -5,7 +5,8 @@ CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 
 SRC		=	ft_printf.c \
-			ft_printf_spellbook.c
+			ft_printf_spellbook[1].c \
+			ft_printf_spellbook[2].c
 
 OBJ 	=	$(SRC:.c=.o)
 
@@ -14,8 +15,9 @@ LIBFT	=	$(LIBFDIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(LIBFT) $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 $(LIBFT):
 	make -C $(LIBFDIR) all

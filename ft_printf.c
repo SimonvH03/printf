@@ -6,11 +6,11 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:13:52 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/23 23:37:42 by simon            ###   ########.fr       */
+/*   Updated: 2023/11/24 00:24:24 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <limits.h>
 
 int	ft_spellbook(va_list args, const char *form)
@@ -53,11 +53,4 @@ int	ft_printf(const char *form, ...)
 	}
 	va_end(args);
 	return (bytes_printed);
-}
-
-int	main(void)
-{
-	ft_printf("mine:	\n%%\n%c\n%s\n%i\n%d\n%u\n%x\n%X\n%p\n", 'c', "string", INT_MIN, INT_MAX, -(UINT_MAX / 2), INT_MAX, -164, "pointer");
-	printf("real:		\n%%\n%c\n%s\n%i\n%d\n%u\n%x\n%X\n%p\n", 'c', "string", INT_MIN, INT_MAX, -(UINT_MAX / 2), INT_MAX, -164, "pointer");
-	return (0);
 }

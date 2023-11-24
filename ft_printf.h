@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/24 00:13:30 by simon            ###   ########.fr       */
+/*   Created: 2023/11/14 19:05:22 by svan-hoo          #+#    #+#             */
+/*   Updated: 2023/11/24 00:24:58 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf_libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include "printf_libft/printf_libft.h"
+# include <stdarg.h>
+# include <unistd.h>
 
-int	ft_putnbr_base(unsigned int n, char *base)
-{
-	int					len;
-	const unsigned int	size = ft_strlen(base);
+int	ft_printf(const char *form, ...);
+int	ft_spellbook(va_list args, const char *form);
 
-	len = 0;
-	if (n >= size)
-		len += ft_putnbr_base(n / size, base);
-	len += ft_putchar(base[n % size]);
-	return (len);
-}
+int	ft_cprint(char c);
+int	ft_sprint(char *str);
+int	ft_idprint(int id);
+int	ft_uprint(unsigned int u);
+int	ft_xprint(int x);
+int	ft_bigxprint(int x);
+int	ft_pprint(void *p);
+
+#endif

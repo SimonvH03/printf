@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:11:55 by simon             #+#    #+#             */
-/*   Updated: 2023/11/24 18:08:04 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:36:45 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_sprint(char *str)
 {
 	if (str == NULL)
-		return (write(1, "(null)", 5));
+		return (write(1, "(null)", 6));
 	else
 		return (ft_putstr(str));
 }

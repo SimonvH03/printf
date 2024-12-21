@@ -12,10 +12,10 @@
 
 #include "printf_libft.h"
 
-int	ft_putnbr_base(unsigned int n, char *base)
+int	ft_putnbr_base(unsigned long n, char *base)
 {
-	int					len;
 	const unsigned int	size = ft_strlen(base);
+	int					len;
 
 	len = 0;
 	if (n >= size)

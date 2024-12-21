@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <limits.h>
+#include "ft_printf.h"
 
 int	ft_spellbook(va_list args, const char *form)
 {
@@ -57,11 +56,4 @@ int	ft_printf(const char *form, ...)
 	}
 	va_end(args);
 	return (bytes_printed);
-}
-
-int	main(void)
-{
-	ft_printf("mine:	\n%%\n%c\n%s\n%i\n%d\n%u\n%x\n%X\n%p\n", 'c', "string", INT_MIN, INT_MAX, -(UINT_MAX / 2), INT_MAX, -164, "pointer");
-	printf("real:		\n%%\n%c\n%s\n%i\n%d\n%u\n%x\n%X\n%p\n", 'c', "string", INT_MIN, INT_MAX, -(UINT_MAX / 2), INT_MAX, -164, "pointer");
-	return (0);
 }

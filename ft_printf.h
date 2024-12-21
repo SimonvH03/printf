@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,8 +23,8 @@ int	ft_cprint(char c);
 int	ft_sprint(char *str);
 int	ft_idprint(int id);
 int	ft_uprint(unsigned int u);
-int	ft_xprint(int x);
-int	ft_bigxprint(int x);
+int	ft_xprint(unsigned int x);
+int	ft_bigxprint(unsigned int x);
 int	ft_pprint(void *p);
 
 #endif

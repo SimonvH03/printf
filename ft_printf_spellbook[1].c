@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_cprint(char c)
 {
@@ -27,12 +27,12 @@ int	ft_uprint(unsigned int u)
 	return (ft_putnbr(u));
 }
 
-int	ft_xprint(int x)
+int	ft_xprint(unsigned int x)
 {
 	return (ft_putnbr_base(x, "0123456789abcdef"));
 }
 
-int	ft_bigxprint(int x)
+int	ft_bigxprint(unsigned int x)
 {
 	return (ft_putnbr_base(x, "0123456789ABCDEF"));
 }

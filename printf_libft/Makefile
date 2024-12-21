@@ -9,7 +9,7 @@ SRC			=	ft_putchar.c \
 				ft_putnbr.c \
 				ft_putpointer.c \
 				ft_putstr.c \
-				ft_strlen.c \
+				ft_strlen.c
 
 OBJ			=	$(SRC:.c=.o)
 

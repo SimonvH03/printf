@@ -12,13 +12,12 @@
 
 #ifndef PRINTF_LIBFT_H
 # define PRINTF_LIBFT_H
-# include <stddef.h>
 # include <stdio.h>
 # include <unistd.h>
 
 int	ft_strlen(const char *c);
 
-int	ft_putnbr_base(unsigned int n, char *base);
+int	ft_putnbr_base(unsigned long n, char *base);
 int	ft_putnbr(long n);
 int	ft_putpointer(unsigned long p);
 int	ft_putchar(char c);

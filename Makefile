@@ -1,5 +1,7 @@
 NAME	=	libftprintf.a
 
+TEST	=	test
+
 CC		=	cc
 
 CFLAGS	=	-Wall -Werror -Wextra
@@ -19,6 +21,9 @@ $(NAME): $(LIBFT) $(OBJ)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJ)
 
+$(TEST): $(NAME) main.c
+	$(CC) $(CFLAGS) main.c $(NAME) -o $(TEST)
+
 $(LIBFT):
 	make -C $(LIBFDIR) all
 
@@ -29,6 +34,7 @@ clean:
 fclean: clean
 	make -C $(LIBFDIR) fclean
 	rm -f $(NAME)
+	rm -f $(TEST)
 
 re: fclean all
 
